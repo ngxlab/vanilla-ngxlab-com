@@ -1,0 +1,20 @@
+[hot]
+ip = 192.168.0.250
+port = 1111
+pass = aaaa
+
+[normal]
+ip = 192.168.0.250
+port = 1111
+pass = aaaa
+
+[cold]
+dbv = c
+ip = 192.168.0.250
+port = 1111
+pass = aaaa
+
+[stat]
+ip = 192.168.0.250
+port = 3800
+pass = aaa

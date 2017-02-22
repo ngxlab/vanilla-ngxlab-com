@@ -6,6 +6,11 @@ local os_getenv = os.getenv
 
 function ErrorController:error()
     local env = os_getenv('VA_ENV') or 'development'
+    do
+        print_r(self.err)
+        return
+    end
+
     if env == 'development' then
         local view = self:getView()
         view:assign(self.err)
