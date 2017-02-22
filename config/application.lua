@@ -14,7 +14,7 @@ Appconf.page_cache.no_cache_uris = {
 Appconf.page_cache.build_cache_key_without_args = {'rd'}
 Appconf.vanilla_root = '/media/psf/g/idevz/code/www/vanilla/framework'
 Appconf.vanilla_version = '0_1_0_rc7'
-Appconf.name = 'vanilla.ngxlab.com'
+Appconf.name = 'vanilla-ngxlab-com'
 
 Appconf.route='vanilla.v.routes.simple'
 Appconf.bootstrap='application.bootstrap'

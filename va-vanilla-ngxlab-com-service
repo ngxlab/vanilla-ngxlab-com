@@ -10,12 +10,12 @@
 OPENRESTY_NGINX_ROOT=/usr/local/openresty-1.11.2.1//nginx
 NGINX=$OPENRESTY_NGINX_ROOT/sbin/nginx
 NGINX_CONF_PATH=$OPENRESTY_NGINX_ROOT/conf
-VA_APP_PATH=/media/psf/g/idevz/code/z/git/vanilla.ngxlab.com
+VA_APP_PATH=/media/psf/g/idevz/code/z/git/vanilla-ngxlab-com
 VA_APP_NAME=`basename $VA_APP_PATH`
 NGINX_CONF_SRC_PATH=$VA_APP_PATH/nginx_conf
 TIME_MARK=`date "+%Y_%m_%d_%H_%M_%S"`
 NGINX_CONF_SRC_PATH=$VA_APP_PATH/nginx_conf
-DESC=va-vanilla.ngxlab.com-service
+DESC=va-vanilla-ngxlab-com-service
 DESC=va-ok-service
 IS_FORCE=''
 PLATFORM=`uname`

@@ -13,14 +13,13 @@ end
 
 function Bootstrap:initRoute()
     local router = self.dispatcher:getRouter()
-    local simple_route = simple:new(self.dispatcher:getRequest())
     local restful_route = restful:new(self.dispatcher:getRequest())
     router:addRoute(restful_route, true)
-    router:addRoute(simple_route)
-    -- print_r(router:getRoutes())
 end
 
 function Bootstrap:initView()
+    local view = LoadV('vanilla.v.views.lemplate'):new(self.dispatcher.application.config.view)
+    self.dispatcher:setView(view)
 end
 
 function Bootstrap:initPlugin()
@@ -32,8 +31,8 @@ function Bootstrap:boot_list()
     return {
         -- Bootstrap.initWaf,
         -- Bootstrap.initErrorHandle,
-        -- Bootstrap.initRoute,
-        -- Bootstrap.initView,
+        Bootstrap.initRoute,
+        Bootstrap.initView,
         -- Bootstrap.initPlugin,
     }
 end
