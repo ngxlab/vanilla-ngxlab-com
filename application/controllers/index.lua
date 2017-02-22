@@ -14,7 +14,13 @@ local aa = LoadLibrary('aa')
 -- end
 
 function IndexController:index()
-  return 'hello vanilla.'
+    do print_r(Registry['sys_conf']['db']['normal']['ip']) end
+    local view = self:getView()
+    local users = {
+                        {name='idevz', addr='yunnan'},
+                        {name='vanilla', addr='beijing'},
+                    }
+    return view:assign({userlists=users, title = 'Vanilla-Lemplate'})
 end
 
 function IndexController:indext()

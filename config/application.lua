@@ -2,10 +2,11 @@ local APP_ROOT = Registry['APP_ROOT']
 local Appconf={}
 Appconf.sysconf = {
     'v_resource',
+    'db',
     'cache'
 }
 Appconf.page_cache = {}
-Appconf.page_cache.cache_on = true
+Appconf.page_cache.cache_on = false
 -- Appconf.page_cache.cache_handle = 'lru'
 Appconf.page_cache.no_cache_cookie = 'va-no-cache'
 Appconf.page_cache.no_cache_uris = {

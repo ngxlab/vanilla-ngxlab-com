@@ -156,7 +156,51 @@ template_map['index-index.html'] = function (context)
     local output = {}
     local i = 0
 
-i = i + 1 output[i] = '<!DOCTYPE html>\n<html>\n<body>\n  <img src="http://m1.sinaimg.cn/maxwidth.300/m1.sinaimg.cn/120d7329960e19cf073f264751e8d959_2043_2241.png">\n  <h1><a href = \'https://github.com/idevz/vanilla\'>{{vanilla}}</a></h1><h5>{{zhoujing}}</h5>\n</body>\n<script>\n  (function(i,s,o,g,r,a,m){i[\'GoogleAnalyticsObject\']=r;i[r]=i[r]||function(){\n  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),\n  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)\n  })(window,document,\'script\',\'//www.google-analytics.com/analytics.js\',\'ga\');\n\n  ga(\'create\', \'UA-71947507-1\', \'auto\');\n  ga(\'send\', \'pageview\');\n\n</script>\n</html>\n'
+i = i + 1 output[i] = '<!DOCTYPE html>\n<html lang="en">\n<head>\n    <meta charset="utf-8">\n    <title>'
+-- line 5 "index-index.html"
+i = i + 1 output[i] = stash_get(stash, 'title')
+i = i + 1 output[i] = '</title>\n</head>\n<body>\n<div>\n'
+-- line 13 "index-index.html"
+
+-- FOREACH
+do
+    local list = stash_get(stash, 'userlists')
+    local iterator
+    if list.list then
+        iterator = list
+        list = list.list
+    end
+    local oldloop = stash_get(stash, 'loop')
+    local count
+    if not iterator then
+        count = table_maxn(list)
+        iterator = { count = 1, max = count - 1, index = 0, size = count, first = true, last = false, prev = "" }
+    else
+        count = iterator.size
+    end
+    stash.loop = iterator
+    for idx, value in ipairs(list) do
+        if idx == count then
+            iterator.last = true
+        end
+        iterator.index = idx - 1
+        iterator.count = idx
+        iterator.next = list[idx + 1]
+        stash['userinfo'] = value
+i = i + 1 output[i] = '\n<p>\n    <h6>姓名：'
+-- line 11 "index-index.html"
+i = i + 1 output[i] = stash_get(stash, {'userinfo', 0, 'name', 0})
+i = i + 1 output[i] = ' / 地址：'
+-- line 11 "index-index.html"
+i = i + 1 output[i] = stash_get(stash, {'userinfo', 0, 'addr', 0})
+i = i + 1 output[i] = '</h6>\n</p>\n'
+        iterator.first = false
+        iterator.prev = value
+    end
+    stash_set(stash, 'loop', oldloop)
+end
+
+i = i + 1 output[i] = '\n</div>\n</body>\n</html>'
 
     return output
 end
